@@ -23,15 +23,13 @@ function MainCtrl(GameService , $timeout , appConstants , $interval) {
     vm.gameSetting = {
         board : GameService.initBoard(),
         currentPlayer : GameService.getCurrentPlayer(),
-        turnsCount : GameService.getTurnsCounter()
+        turnsCount : GameService.getTurnsCounter(),
+        users : GameService.getUsersInfo()
+
     }
 
 
     startNextTurn();
-    //vm.board = GameService.initBoard();
-    //vm.turnsCount = GameService.getTurnsCounter();
-
-
 
     vm.cellClicked = function ( cell  ){
         if(cell.value !==  null){
@@ -40,34 +38,26 @@ function MainCtrl(GameService , $timeout , appConstants , $interval) {
 
         cell.value = GameService.getCurrentPlayer();
             if(GameService.setCell(cell)){
-                vm.gameSetting.turnsCount++;
-                $interval.cancel(vm.promise);
                 startNextTurn();
             }else{
-                alert('We have a winner !');
+
             }
 
     }
 
     function startNextTurn (){
+        vm.gameSetting.turnsCount = GameService.incTurnsCount();
+        $interval.cancel(vm.promise);
         vm.turnLengthInSeconds = appConstants.TURN_LENGTH;
-        vm.gameSetting.turnsCount++;
         vm.promise = $interval(function(){
             vm.turnLengthInSeconds--;
             if(vm.turnLengthInSeconds === 0){
                 vm.gameSetting.currentPlayer =  GameService.pendingTurn();
                 $interval.cancel(vm.promise);
                 startNextTurn();
+
             }
         }, 1000);
-        //$interval( function(){
-        //    vm.turnLengthInSeconds--;
-        //    if(vm.turnLengthInSeconds === 0){
-        //        vm.gameSetting.currentPlayer =  GameService.pendingTurn();
-        //        vm.gameSetting.turnsCount++;
-        //        vm.turnLengthInSeconds = appConstants.TURN_LENGTH
-        //    }
-        //}, 1000);
     }
 
 

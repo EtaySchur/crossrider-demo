@@ -17,6 +17,7 @@
     <div class="container">
         <h3> Turn # {{ctrl.gameSetting.turnsCount}}</h3>
         <h3> Time Left : {{ctrl.turnLengthInSeconds}}</h3>
+        <h3> {{ctrl.gameSetting.users[true].name}} Wins  : {{ctrl.gameSetting.users[true].wins}}</h3>
         <div style="margin-top: 200px" class="row">
             <div class="col-md-4 col-md-offset-4">
                 <div  ng-repeat="cell in ctrl.gameSetting.board track by $index" class="col-xs-4 board-cell">
