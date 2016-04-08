@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Crossrider Demo App</title>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.3/angular.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/1.3.1/ui-bootstrap-tpls.min.js"></script>
+    <link  rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link  rel="stylesheet" href="styles/styles.css">
+    <script src="scripts/app.js"></script>
+    <script src="scripts/controllers/main.ctrl.js"></script>
+    <script src="scripts/services/game.srv.js"></script>
+    <script src="scripts/constants/app.constants.js"></script>
+</head>
+<body ng-app="crossriderDemoApp" ng-controller="MainCtrl as ctrl">
+
+    <div class="container">
+        <h3> Turn # {{ctrl.gameSetting.turnsCount}}</h3>
+        <h3> Time Left : {{ctrl.turnLengthInSeconds}}</h3>
+        <div style="margin-top: 200px" class="row">
+            <div class="col-md-4 col-md-offset-4">
+                <div  ng-repeat="cell in ctrl.gameSetting.board track by $index" class="col-xs-4 board-cell">
+                    <button ng-class="{'btn-primary' : cell.value === true , 'btn-danger' : cell.value === false}" ng-click="ctrl.cellClicked(cell)" class="btn btn-default btn-lg">
+                        <div ng-show="cell.value === true" class="cell-player-indicator"> O  </div>
+                        <div ng-show="cell.value === false" class="cell-player-indicator"> X  </div>
+                        <div ng-show="cell.value === null" class="cell-player-indicator"> +  </div>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
