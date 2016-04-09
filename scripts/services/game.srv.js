@@ -14,7 +14,7 @@
         var gameData = {
             moves : 0,
             numOfGames : 0,
-            initPlayerTurn : 'X',
+            currentPlayer : 'X',
             board : [],
             users : {}
         };
@@ -24,7 +24,6 @@
             gameService = {
                 initBoard           :   initBoard,
                 setCell             :   setCell,
-                getCurrentPlayer    :   getCurrentPlayer,
                 getNumberOfMoves    :   getNumberOfMoves,
                 checkForWin         :   checkForWin,
                 setWinner           :   setWinner,
@@ -32,7 +31,9 @@
                 incNumberOfGames    :   incNumberOfGames,
                 initNewMatch        :   initNewMatch,
                 initNewTournament   :   initNewTournament,
-                isCellEmpty         :   isCellEmpty
+                isCellEmpty         :   isCellEmpty,
+                setGameData         :   setGameData,
+                togglePlayer        :   togglePlayer
             };
         ////////////////////////////////////////////////////////////////////////////////////////////////
         return gameService;
@@ -53,6 +54,12 @@
             return gameData.board;
         }
 
+        function togglePlayer( currentPlayer ){
+            gameData.currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+            setCookie(gameData);
+            return gameData.currentPlayer;
+        }
+
 
         function isCellEmpty( cell ){
             return cell.value === null ? true : false;
@@ -60,16 +67,19 @@
 
 
         function setCell(cell , currentPlayer) {
+            console.log(" Setting Cell ",gameData);
             gameData.users[currentPlayer].score += cell.indicator;
             cell.value = currentPlayer;
             gameData.moves++;
-            //setCookiesData('board' , board);
+            setCookie(gameData);
             return true;
         }
 
-        function getCurrentPlayer() {
-            return currentPlayerTurn;
+        function setGameData(gameDataObject){
+            gameData = gameDataObject;
         }
+
+
 
         function getNumberOfMoves() {
             return gameData.moves;
@@ -107,10 +117,11 @@
             gameData.moves = 0;
             gameData.users['X'].score = 0;
             gameData.users['O'].score = 0;
+
             gameData.numOfGames++;
             return {
                 board : gameData.board ,
-                currentPlayer : gameData.initPlayerTurn ,
+                currentPlayer : gameData.currentPlayer ,
                 users : gameData.users
             };
         }
@@ -120,11 +131,8 @@
             gameData.users = usersInfo;
         }
 
-        function setBoardCookiesData ( key , value ){
-            $cookieStore.put(key, []);
-            var array = $cookieStore.get('key');
-            array.push(value);
-            $cookies.put( key ,value );
+        function setCookie ( gameDataObject ){
+            $cookies.putObject( 'gameData' , gameDataObject );
         }
     }
 

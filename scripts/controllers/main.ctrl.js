@@ -9,7 +9,7 @@
     angular.module('crossriderDemoApp')
         .controller('MainCtrl', MainCtrl);
 
-    function MainCtrl(GameService , $uibModal , appConstants , $interval) {
+    function MainCtrl(GameService , $uibModal , appConstants , $interval , $cookies) {
         'use strict';
         var vm = this;
         vm.turnLengthInSeconds = appConstants.TURN_LENGTH;
@@ -33,7 +33,12 @@
         ///////////////////Private///////////////////
 
         function _init(){
-            var users = {
+            if($cookies.getObject('gameData')){
+                vm.gameSetting = $cookies.getObject('gameData');
+                GameService.setGameData(vm.gameSetting);
+                console.log(" I HAVE COOLIE ! ", $cookies.getObject('gameData'));
+            }else{
+                var users = {
                     'X': {
                         score: 0,
                         name: "Avi",
@@ -46,15 +51,17 @@
                         wins: 0
                     }
                 };
-            GameService.initNewTournament(users);
-            _playNewMatch();
+                GameService.initNewTournament(users);
+                vm.gameSetting = GameService.initNewMatch();
+            }
+            //_play();
+            vm.gameRunning = true;
+
         }
 
 
 
-        function _playNewMatch(){
-            vm.gameSetting = GameService.initNewMatch();
-            console.log(vm.gameSetting);
+        function _play(){
             startNextTurn();
             vm.gameRunning = true;
         }
@@ -87,12 +94,14 @@
 
         function startNextTurn (){
             $interval.cancel(timer);
-            vm.gameSetting.currentPlayer = vm.gameSetting.currentPlayer === 'X' ? 'O' : 'X';
+            vm.gameSetting.currentPlayer = GameService.togglePlayer(vm.gameSetting.currentPlayer);
+           // vm.gameSetting.currentPlayer = vm.gameSetting.currentPlayer === 'X' ? 'O' : 'X';
+            console.log("This is my current play ",vm.gameSetting.currentPlayer);
             vm.turnLengthInSeconds = appConstants.TURN_LENGTH;
             timer = $interval(function(){
                 vm.turnLengthInSeconds--;
                 if(vm.turnLengthInSeconds === 0){
-                    var winner = vm.gameSetting.currentPlayer === 'X' ? 'O' : 'X'
+                    var winner = vm.gameSetting.currentPlayer === 'X' ? 'O' : 'X';
                     GameService.setWinner(winner);
                     openEndMatchModal(winner);
 
@@ -149,7 +158,8 @@
                     openEndTournamentModal();
                 }else{
                     // Still have games to play , play new match
-                    _playNewMatch();
+                    vm.gameSetting = GameService.initNewMatch();
+                    _play();
                 }
             }, function () {
 
