@@ -13,6 +13,7 @@ function MainCtrl(GameService , $uibModal , appConstants , $interval) {
     vm.turnLengthInSeconds = appConstants.TURN_LENGTH;
     vm.promise;
 
+
     vm.init = function(){
         vm.gameSetting = GameService.initNewMatch();
         console.log(vm.gameSetting);
