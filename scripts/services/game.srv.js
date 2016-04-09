@@ -26,6 +26,7 @@ angular.module('crossriderDemoApp')
             wins = [7, 56, 448, 73, 146, 292, 273, 84],
             gameService = {
                 initBoard: function () {
+                    board = [];
                     var indicator = 1;
                     for (var i = 0; i < appConstants.BOARD_SIZE; i++) {
                         var boardCell = {
@@ -33,7 +34,6 @@ angular.module('crossriderDemoApp')
                             indicator: indicator
 
                         }
-                        console.log(boardCell);
                         indicator += indicator;
                         board.push(boardCell);
                     }
@@ -92,6 +92,19 @@ angular.module('crossriderDemoApp')
                 incNumberOfGames : function(){
                     numOfGames++;
                     return numOfGames;
+                },
+                initNewMatch : function(){
+                    board = this.initBoard();
+                    currentPlayerTurn = true;
+                    moves = 0;
+                    users[true].score = 0;
+                    users[false].score = 0;
+                    numOfGames++;
+                    return {
+                        board : board ,
+                        currentPlayersTurn : currentPlayerTurn ,
+                        users : users
+                    }
                 }
             };
         return gameService;

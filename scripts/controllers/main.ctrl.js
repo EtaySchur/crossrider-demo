@@ -18,19 +18,18 @@ angular.module('crossriderDemoApp')
 function MainCtrl(GameService , $uibModal , appConstants , $interval) {
     'use strict';
     var vm = this;
-
-
-    vm.promise;
     vm.turnLengthInSeconds = appConstants.TURN_LENGTH;
-    vm.gameSetting = {
-        board : GameService.initBoard(),
-        currentPlayer : GameService.getCurrentPlayer(),
-        users : GameService.getUsersInfo()
+    vm.promise;
 
+    vm.init = function(){
+        vm.gameSetting = GameService.initNewMatch();
+        console.log(vm.gameSetting);
+        startNextTurn();
+        vm.gameRunning = true;
     }
 
+    vm.init();
 
-    startNextTurn();
 
     vm.cellClicked = function ( cell  ){
         if(cell.value !==  null){
@@ -47,7 +46,7 @@ function MainCtrl(GameService , $uibModal , appConstants , $interval) {
                     startNextTurn();
                 }
             }else{
-                GameService.incNumberOfGames();
+                //GameService.incNumberOfGames();
                 openEndGameModal(GameService.getCurrentPlayer());
             }
 
@@ -69,6 +68,8 @@ function MainCtrl(GameService , $uibModal , appConstants , $interval) {
     }
 
     function openEndGameModal( winner ){
+        $interval.cancel(vm.promise);
+        vm.gameRunning = false;
         var modalInstance = $uibModal.open({
             animation: true ,
             templateUrl: 'partials/modal.html',
@@ -83,9 +84,10 @@ function MainCtrl(GameService , $uibModal , appConstants , $interval) {
             }
         });
 
+
         modalInstance.result.then(function () {
                 // Restart Match
-
+                vm.init();
         }, function () {
 
         });

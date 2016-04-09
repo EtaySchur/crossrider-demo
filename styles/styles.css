@@ -8,9 +8,9 @@
 
 .user-circle {
     border-radius: 50%;
-    width: 60px;
-    height: 60px;
-    padding: 8px;
+    width: 120px;
+    height: 120px;
+    padding: 40px;
     margin-left: auto;
     margin-right: auto;
     border: 2px solid #666;
@@ -27,5 +27,15 @@
 
 .blue {
     background-color: #337ab7;
+}
+
+.user-circle {
+    -webkit-animation-duration: 2s;
+    -webkit-animation-delay: 1s;
+    -webkit-animation-iteration-count: infinite;
+}
+
+.info-row{
+    margin-top: 30px;
 }
 
