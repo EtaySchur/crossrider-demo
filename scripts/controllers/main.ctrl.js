@@ -133,7 +133,7 @@
                     openEndTournamentModal();
                 }else{
                     // Restart Match
-                    vm.init();
+                    _init();
                 }
             }, function () {
 
