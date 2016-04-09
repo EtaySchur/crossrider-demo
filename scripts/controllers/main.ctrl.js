@@ -35,20 +35,31 @@
         ///////////////////Pivate///////////////////
 
         function _init(){
+            var users = {
+                    true: {
+                        score: 0,
+                        name: "Avi",
+                        wins: 0
+
+                    },
+                    false: {
+                        score: 0,
+                        name: "shlomi",
+                        wins: 0
+                    }
+                };
+            GameService.initNewTournament(users);
+            _playNewGame();
+        }
+
+
+
+        function _playNewGame(){
             vm.gameSetting = GameService.initNewMatch();
             console.log(vm.gameSetting);
             startNextTurn();
             vm.gameRunning = true;
         }
-
-        //vm.init = function(){
-        //    vm.gameSetting = GameService.initNewMatch();
-        //    console.log(vm.gameSetting);
-        //    startNextTurn();
-        //    vm.gameRunning = true;
-        //}
-        //
-        //vm.init();
 
 
         vm.cellClicked = function ( cell  ){
@@ -71,15 +82,12 @@
         }
 
         function startNextTurn (){
-            //vm.gameSetting.turnsCount = GameService.incTurnsCount();
             $interval.cancel(vm.promise);
             vm.gameSetting.currentPlayer = vm.gameSetting.currentPlayer === true ? false : true
-            console.log("Current Player is not ",vm.gameSetting.currentPlayer);
             vm.turnLengthInSeconds = appConstants.TURN_LENGTH;
             vm.promise = $interval(function(){
                 vm.turnLengthInSeconds--;
                 if(vm.turnLengthInSeconds === 0){
-                    // vm.gameSetting.currentPlayer =  GameService.pendingTurn();
                     $interval.cancel(vm.promise);
                     startNextTurn();
 
@@ -102,7 +110,7 @@
 
 
             modalInstance.result.then(function () {
-
+                _init();
             }, function () {
 
             });
@@ -133,7 +141,7 @@
                     openEndTournamentModal();
                 }else{
                     // Restart Match
-                    _init();
+                    _playNewGame();
                 }
             }, function () {
 

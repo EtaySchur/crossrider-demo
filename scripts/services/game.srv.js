@@ -15,20 +15,10 @@
             numOfGames = 0,
             initPlayerTurn = false,
             board = [],
-            users = {
-                true: {
-                    score: 0,
-                    name: "Avi",
-                    wins: 0
-
-                },
-                false: {
-                    score: 0,
-                    name: "shlomi",
-                    wins: 0
-                }
-            },
+            users = {},
             wins = [7, 56, 448, 73, 146, 292, 273, 84],
+
+
             gameService = {
                 initBoard           :   initBoard,
                 setCell             :   setCell,
@@ -61,6 +51,8 @@
 
             return board;
         }
+
+
 
 
 
@@ -123,6 +115,7 @@
         }
 
         function initNewMatch(){
+            console.log(users);
             board = this.initBoard();
             moves = 0;
             users[true].score = 0;
@@ -135,10 +128,12 @@
             };
         }
 
-        function initNewTournament(){
+        function initNewTournament( usersInfo ){
             numOfGames = 0;
-            users = [];
+            users = usersInfo;
         }
+
+
     }
 
 })();
