@@ -117,7 +117,7 @@
             gameData.moves = 0;
             gameData.users['X'].score = 0;
             gameData.users['O'].score = 0;
-            gameData.currentPlayer = 'O';
+            gameData.currentPlayer = 'X';
             gameData.numOfGames++;
 
             setCookie('gameData' , gameData);
