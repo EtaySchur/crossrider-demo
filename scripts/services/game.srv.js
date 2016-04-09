@@ -33,13 +33,13 @@
                 initNewTournament   :   initNewTournament,
                 isCellEmpty         :   isCellEmpty,
                 setGameData         :   setGameData,
-                togglePlayer        :   togglePlayer
+                togglePlayer        :   togglePlayer,
+                endTournament       :   endTournament
             };
         ////////////////////////////////////////////////////////////////////////////////////////////////
         return gameService;
 
         function initBoard(){
-            console.log('I have Cookie ? ' , $cookies.get('board'));
             gameData.board = [];
             var indicator = 1;
             for (var i = 0; i < appConstants.BOARD_SIZE; i++) {
@@ -50,13 +50,13 @@
                 indicator += indicator;
                 gameData.board.push(boardCell);
             }
-            //setCookiesData('board' , board);
+
             return gameData.board;
         }
 
         function togglePlayer( currentPlayer ){
             gameData.currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
-            setCookie(gameData);
+            setCookie('gameData' , gameData);
             return gameData.currentPlayer;
         }
 
@@ -71,7 +71,7 @@
             gameData.users[currentPlayer].score += cell.indicator;
             cell.value = currentPlayer;
             gameData.moves++;
-            setCookie(gameData);
+            setCookie( 'gameData' , gameData);
             return true;
         }
 
@@ -119,6 +119,8 @@
             gameData.users['O'].score = 0;
 
             gameData.numOfGames++;
+
+            setCookie('gameData' , gameData);
             return {
                 board : gameData.board ,
                 currentPlayer : gameData.currentPlayer ,
@@ -131,8 +133,16 @@
             gameData.users = usersInfo;
         }
 
-        function setCookie ( gameDataObject ){
-            $cookies.putObject( 'gameData' , gameDataObject );
+        function endTournament(){
+            clearCookie('gameData')
+        }
+
+        function setCookie ( key , gameDataObject ){
+            $cookies.putObject( key , gameDataObject );
+        }
+
+        function clearCookie ( key ){
+            $cookies.remove(key);
         }
     }
 

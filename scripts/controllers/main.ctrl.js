@@ -34,8 +34,15 @@
 
         function _init(){
             if($cookies.getObject('gameData')){
+                // Getting Data From Cookie
                 vm.gameSetting = $cookies.getObject('gameData');
+                // Setting GameService Data
                 GameService.setGameData(vm.gameSetting);
+
+               // Check if last game state was in winning modal , if true , reload the winning modal
+               if(GameService.checkForWin(vm.gameSetting.currentPlayer)){
+                   openEndMatchModal(vm.gameSetting.currentPlayer);
+               }
                 console.log(" I HAVE COOLIE ! ", $cookies.getObject('gameData'));
             }else{
                 var users = {
@@ -110,6 +117,7 @@
         }
 
         function openEndTournamentModal(){
+            GameService.endTournament();
             vm.gameRunning = false;
             var modalInstance = $uibModal.open({
                 animation: true ,
@@ -126,9 +134,9 @@
 
 
             modalInstance.result.then(function () {
+
                 _init();
             }, function () {
-
             });
         }
 
