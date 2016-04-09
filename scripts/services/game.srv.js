@@ -10,13 +10,18 @@
         .service('GameService', GameService);
 
     function GameService(appConstants , $cookies) {
+
         console.log(appConstants);
-        var moves = 0,
-            numOfGames = 0,
-            initPlayerTurn = false,
-            board = [],
-            users = {},
-            wins = [7, 56, 448, 73, 146, 292, 273, 84],
+        var gameData = {
+            moves : 0,
+            numOfGames : 0,
+            initPlayerTurn : false,
+            board : [],
+            users : {}
+        };
+
+
+        var wins = [7, 56, 448, 73, 146, 292, 273, 84],
 
 
             gameService = {
@@ -37,7 +42,7 @@
 
         function initBoard(){
             console.log('I have Cookie ? ' , $cookies.get('board'));
-            board = [];
+            gameData.board = [];
             var indicator = 1;
             for (var i = 0; i < appConstants.BOARD_SIZE; i++) {
                 var boardCell = {
@@ -45,10 +50,10 @@
                     indicator: indicator
                 };
                 indicator += indicator;
-                board.push(boardCell);
+                gameData.board.push(boardCell);
             }
             //setCookiesData('board' , board);
-            return board;
+            return gameData.board;
         }
 
 
@@ -58,9 +63,9 @@
 
 
         function setCell(cell , currentPlayer) {
-            users[currentPlayer].score += cell.indicator;
+            gameData.users[currentPlayer].score += cell.indicator;
             cell.value = currentPlayer;
-            moves++;
+            gameData.moves++;
             //setCookiesData('board' , board);
             return true;
         }
@@ -70,15 +75,15 @@
         }
 
         function getNumberOfMoves() {
-            return moves;
+            return gameData.moves;
         }
 
         function checkForWin(currentPlayer) {
-            if ( moves <= 4) {
+            if ( gameData.moves <= 4) {
                 return false;
             }
             for (var i = 0; i < wins.length; i++) {
-                if ((wins[i] & users[currentPlayer].score) === wins[i]) {
+                if ((wins[i] & gameData.users[currentPlayer].score) === wins[i]) {
                     this.setWinner(currentPlayer);
                     return true;
                 }
@@ -87,7 +92,7 @@
         }
 
         function setWinner(currentPlayer) {
-            users[currentPlayer].wins++;
+            gameData.users[currentPlayer].wins++;
         }
 
 
@@ -101,21 +106,21 @@
         }
 
         function initNewMatch(){
-            board = this.initBoard();
-            moves = 0;
-            users[true].score = 0;
-            users[false].score = 0;
-            numOfGames++;
+            gameData.board = this.initBoard();
+            gameData.moves = 0;
+            gameData.users[true].score = 0;
+            gameData.users[false].score = 0;
+            gameData.numOfGames++;
             return {
-                board : board ,
-                currentPlayer : initPlayerTurn ,
-                users : users
+                board : gameData.board ,
+                currentPlayer : gameData.initPlayerTurn ,
+                users : gameData.users
             };
         }
 
         function initNewTournament( usersInfo ){
-            numOfGames = 0;
-            users = usersInfo;
+            gameData.numOfGames = 0;
+            gameData.users = usersInfo;
         }
 
         function setBoardCookiesData ( key , value ){

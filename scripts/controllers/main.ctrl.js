@@ -32,7 +32,7 @@
                 openEndGameModal(vm.gameSetting.currentPlayer);
             }}
 
-        ///////////////////Pivate///////////////////
+        ///////////////////Private///////////////////
 
         function _init(){
             var users = {
