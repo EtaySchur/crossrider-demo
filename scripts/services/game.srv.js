@@ -47,7 +47,7 @@
                 indicator += indicator;
                 board.push(boardCell);
             }
-            setCookiesData('board' , board);
+            //setCookiesData('board' , board);
             return board;
         }
 
@@ -61,7 +61,7 @@
             users[currentPlayer].score += cell.indicator;
             cell.value = currentPlayer;
             moves++;
-            setCookiesData('board' , board);
+            //setCookiesData('board' , board);
             return true;
         }
 
