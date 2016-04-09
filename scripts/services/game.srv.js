@@ -6,7 +6,8 @@
 angular.module('crossriderDemoApp')
     .service('GameService', function (appConstants) {
         var gameService,
-            turnsCounter = 0,
+            moves = 0,
+            numOfGames = 0,
             currentPlayerTurn = true,
             board = [],
             users = {
@@ -44,11 +45,10 @@ angular.module('crossriderDemoApp')
                     return currentPlayerTurn;
                 },
                 setCell: function (cell) {
-                    console.log("Setting Cell Indicator ", cell.indicator);
-                    console.log("Turn # ", turnsCounter);
-                    console.log(users);
                     users[currentPlayerTurn].score += cell.indicator;
                     cell.value = currentPlayerTurn;
+                    moves++;
+
                     if (this.checkForWin()) {
                         this.setWinner();
                         return false;
@@ -59,11 +59,11 @@ angular.module('crossriderDemoApp')
                 getCurrentPlayer: function () {
                     return currentPlayerTurn;
                 },
-                getTurnsCounter: function () {
-                    return turnsCounter;
+                getNumberOfMoves: function () {
+                    return moves;
                 },
                 checkForWin: function () {
-                    if (turnsCounter <= 4) {
+                    if ( moves <= 4) {
                         return false;
                     }
                     for (var i = 0; i < wins.length; i++) {
@@ -85,6 +85,13 @@ angular.module('crossriderDemoApp')
                 incTurnsCount : function(){
                     turnsCounter++;
                     return turnsCounter;
+                },
+                getNumberOfGames : function(){
+                    return numOfGames;
+                },
+                incNumberOfGames : function(){
+                    numOfGames++;
+                    return numOfGames;
                 }
             };
         return gameService;

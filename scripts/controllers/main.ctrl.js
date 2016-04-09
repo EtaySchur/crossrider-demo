@@ -15,15 +15,16 @@ angular.module('crossriderDemoApp')
     .controller('MainCtrl', MainCtrl);
 
 
-function MainCtrl(GameService , $timeout , appConstants , $interval) {
+function MainCtrl(GameService , $uibModal , appConstants , $interval) {
     'use strict';
     var vm = this;
+
+
     vm.promise;
     vm.turnLengthInSeconds = appConstants.TURN_LENGTH;
     vm.gameSetting = {
         board : GameService.initBoard(),
         currentPlayer : GameService.getCurrentPlayer(),
-        turnsCount : GameService.getTurnsCounter(),
         users : GameService.getUsersInfo()
 
     }
@@ -37,16 +38,23 @@ function MainCtrl(GameService , $timeout , appConstants , $interval) {
         }
 
         cell.value = GameService.getCurrentPlayer();
-            if(GameService.setCell(cell)){
-                startNextTurn();
-            }else{
 
+            if(GameService.setCell(cell)){
+                if(GameService.getNumberOfMoves() === appConstants.BOARD_SIZE){
+                    GameService.incNumberOfGames();
+                    openEndGameModal(null);
+                }else{
+                    startNextTurn();
+                }
+            }else{
+                GameService.incNumberOfGames();
+                openEndGameModal(GameService.getCurrentPlayer());
             }
 
     }
 
     function startNextTurn (){
-        vm.gameSetting.turnsCount = GameService.incTurnsCount();
+        //vm.gameSetting.turnsCount = GameService.incTurnsCount();
         $interval.cancel(vm.promise);
         vm.turnLengthInSeconds = appConstants.TURN_LENGTH;
         vm.promise = $interval(function(){
@@ -58,6 +66,29 @@ function MainCtrl(GameService , $timeout , appConstants , $interval) {
 
             }
         }, 1000);
+    }
+
+    function openEndGameModal( winner ){
+        var modalInstance = $uibModal.open({
+            animation: true ,
+            templateUrl: 'partials/modal.html',
+            controller: 'ModalCtrl',
+            resolve: {
+                gameSetting: function () {
+                    return vm.gameSetting;
+                },
+                winner : function(){
+                    return winner
+                }
+            }
+        });
+
+        modalInstance.result.then(function () {
+                // Restart Match
+
+        }, function () {
+
+        });
     }
 
 

@@ -5,3 +5,27 @@
 .board-cell{
     margin-bottom: 30px;
 }
+
+.user-circle {
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    padding: 8px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px solid #666;
+    color: white;
+    text-align: center;
+
+    font: 32px Arial, sans-serif;
+}
+
+.red {
+    background-color: #d9534f;
+    color: white;
+}
+
+.blue {
+    background-color: #337ab7;
+}
+
