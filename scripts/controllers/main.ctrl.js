@@ -143,7 +143,7 @@
 
             modalInstance.result.then(function () {
                 console.log(GameService.getNumberOfGames());
-                if(vm.gameSetting.users[vm.gameSetting.currentPlayer].wins === ((Math.ceil(appConstants.MAX_NUMBER_OF_GAMES / 2))) ||  GameService.getNumberOfGames() === appConstants.MAX_NUMBER_OF_GAMES){
+                if(vm.gameSetting.users[vm.gameSetting.currentPlayer].wins === ((Math.ceil(appConstants.MAX_NUMBER_OF_GAMES / 2)))){
                     openEndTournamentModal();
                 }else{
                     // Restart Match

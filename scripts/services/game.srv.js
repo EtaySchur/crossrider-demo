@@ -11,7 +11,6 @@
 
     function GameService(appConstants , $cookies) {
 
-        console.log(appConstants);
         var gameData = {
             moves : 0,
             numOfGames : 0,
@@ -22,8 +21,6 @@
 
 
         var wins = [7, 56, 448, 73, 146, 292, 273, 84],
-
-
             gameService = {
                 initBoard           :   initBoard,
                 setCell             :   setCell,
@@ -97,16 +94,16 @@
 
 
         function getNumberOfGames(){
-            return numOfGames;
+            return gameData.numOfGames;
         }
 
         function incNumberOfGames(){
-            numOfGames++;
-            return numOfGames;
+            gameData.numOfGames++;
+            return gameData.numOfGames;
         }
 
         function initNewMatch(){
-            gameData.board = this.initBoard();
+            gameData.board = initBoard();
             gameData.moves = 0;
             gameData.users[true].score = 0;
             gameData.users[false].score = 0;
