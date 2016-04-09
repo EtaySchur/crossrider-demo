@@ -9,7 +9,7 @@
         .module('crossriderDemoApp')
         .service('GameService', GameService);
 
-    function GameService(appConstants) {
+    function GameService(appConstants , $cookies) {
         console.log(appConstants);
         var moves = 0,
             numOfGames = 0,
@@ -36,6 +36,7 @@
         return gameService;
 
         function initBoard(){
+            console.log('I have Cookie ? ' , $cookies.get('board'));
             board = [];
             var indicator = 1;
             for (var i = 0; i < appConstants.BOARD_SIZE; i++) {
@@ -46,7 +47,7 @@
                 indicator += indicator;
                 board.push(boardCell);
             }
-
+            setCookiesData('board' , board);
             return board;
         }
 
@@ -60,7 +61,7 @@
             users[currentPlayer].score += cell.indicator;
             cell.value = currentPlayer;
             moves++;
-
+            setCookiesData('board' , board);
             return true;
         }
 
@@ -86,7 +87,6 @@
         }
 
         function setWinner(currentPlayer) {
-
             users[currentPlayer].wins++;
         }
 
@@ -101,7 +101,6 @@
         }
 
         function initNewMatch(){
-            console.log(users);
             board = this.initBoard();
             moves = 0;
             users[true].score = 0;
@@ -117,6 +116,13 @@
         function initNewTournament( usersInfo ){
             numOfGames = 0;
             users = usersInfo;
+        }
+
+        function setBoardCookiesData ( key , value ){
+            $cookieStore.put(key, []);
+            var array = $cookieStore.get('key');
+            array.push(value);
+            $cookies.put( key ,value );
         }
     }
 
