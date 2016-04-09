@@ -13,5 +13,6 @@
 
 angular
     .module('crossriderDemoApp', [
-        'ui.bootstrap'
+        'ui.bootstrap',
+        'ngCookies'
     ]);
