@@ -45,6 +45,8 @@
 
 .winning-body{
     background-image: url('../assets/cup.png');
+    background-size: 100% auto;
+    height: 600px;
 }
 
 
