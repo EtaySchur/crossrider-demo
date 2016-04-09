@@ -30,6 +30,12 @@
                 openEndMatchModal(vm.gameSetting.currentPlayer);
             }}
 
+
+
+
+
+
+
         ///////////////////Private///////////////////
 
         function _init(){
@@ -43,7 +49,6 @@
                if(GameService.checkForWin(vm.gameSetting.currentPlayer)){
                    openEndMatchModal(vm.gameSetting.currentPlayer);
                }
-                console.log(" I HAVE COOLIE ! ", $cookies.getObject('gameData'));
             }else{
                 var users = {
                     'X': {
