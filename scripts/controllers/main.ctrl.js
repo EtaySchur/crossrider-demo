@@ -2,14 +2,6 @@
  * Created by EtaySchur on 08/04/2016.
  */
 
-///* @ngInject */
-//module.exports = function MainCtrl( ) {
-//    'use strict';
-//    // Controller Params
-//    var vm = this;
-//
-//};
-
 
 angular.module('crossriderDemoApp')
     .controller('MainCtrl', MainCtrl);
@@ -68,6 +60,7 @@ function MainCtrl(GameService , $uibModal , appConstants , $interval) {
     }
 
     function openEndTournamentModal(){
+        vm.gameRunning = false;
         var modalInstance = $uibModal.open({
             animation: true ,
             templateUrl: 'partials/tournament-modal.html',
@@ -88,9 +81,9 @@ function MainCtrl(GameService , $uibModal , appConstants , $interval) {
     }
 
     function openEndGameModal( winner ){
-        console.log("We have a winniner ?" ,winner);
-        $interval.cancel(vm.promise);
         vm.gameRunning = false;
+        $interval.cancel(vm.promise);
+
         var modalInstance = $uibModal.open({
             animation: true ,
             templateUrl: 'partials/modal.html',
@@ -111,10 +104,9 @@ function MainCtrl(GameService , $uibModal , appConstants , $interval) {
             if(vm.gameSetting.users[vm.gameSetting.currentPlayer].wins === ((Math.ceil(appConstants.MAX_NUMBER_OF_GAMES / 2))) ||  GameService.getNumberOfGames() === appConstants.MAX_NUMBER_OF_GAMES){
                 openEndTournamentModal();
             }else{
-
-            }
                 // Restart Match
                 vm.init();
+            }
         }, function () {
 
         });

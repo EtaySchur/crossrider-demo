@@ -27,9 +27,11 @@
                 <div ng-class="{'pulse' : ctrl.gameSetting.currentPlayer === true }" class="user-circle blue animated">O</div>
                 <p>  Wins : {{ctrl.gameSetting.users[true].wins}}  </p>
             </div>
-            <div class="col-md-4">
-                <h3> Time Left : {{ctrl.turnLengthInSeconds}}</h3>
-                <h3> Current Player {{ctrl.gameSetting.currentPlayer}}</h3>
+            <div   class="col-md-4">
+                <div ng-if="ctrl.gameRunning" class="info-wrappar">
+                    <h3> Time Left : {{ctrl.turnLengthInSeconds}}</h3>
+                    <h3> Current Player {{ctrl.gameSetting.currentPlayer}}</h3>
+                </div>
             </div>
             <div class="col-md-4">
                 <p> {{ctrl.gameSetting.users[false].name}}</p>
