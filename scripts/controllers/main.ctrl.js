@@ -63,22 +63,28 @@
 
 
         vm.cellClicked = function ( cell  ){
-            if(cell.value !==  null){
+            // Check if cell is empty
+            if(!GameService.isCellEmpty(cell)){
                 return;
             }
 
-            //cell.value = GameService.getCurrentPlayer();
+            // Setting cell value
+            GameService.setCell(cell ,  vm.gameSetting.currentPlayer);
 
-            if(GameService.setCell(cell ,  vm.gameSetting.currentPlayer)){
-                if(GameService.getNumberOfMoves() === appConstants.BOARD_SIZE){
-                    openEndGameModal(null);
-                }else{
-                    startNextTurn();
-                }
-            }else{
+            // Check if we have a wiiner :)
+            if(GameService.checkForWin(vm.gameSetting.currentPlayer)){
                 openEndGameModal(vm.gameSetting.currentPlayer);
+                return;
+            };
+
+            // Check if all moved were made and end game with draw
+            if(GameService.getNumberOfMoves() === appConstants.BOARD_SIZE){
+                openEndGameModal(null);
+                return;
             }
 
+            // Continue to next turn
+            startNextTurn();
         }
 
         function startNextTurn (){

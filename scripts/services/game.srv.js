@@ -26,13 +26,11 @@
                 getNumberOfMoves    :   getNumberOfMoves,
                 checkForWin         :   checkForWin,
                 setWinner           :   setWinner,
-                setUsersInfo        :   setUsersInfo,
-                getUsersInfo        :   getUsersInfo,
-                incTurnsCount       :   incTurnsCount,
                 getNumberOfGames    :   getNumberOfGames,
                 incNumberOfGames    :   incNumberOfGames,
                 initNewMatch        :   initNewMatch,
-                initNewTournament   :   initNewTournament
+                initNewTournament   :   initNewTournament,
+                isCellEmpty         :   isCellEmpty
             };
         ////////////////////////////////////////////////////////////////////////////////////////////////
         return gameService;
@@ -53,7 +51,9 @@
         }
 
 
-
+        function isCellEmpty( cell ){
+            return cell.value === null ? true : false;
+        }
 
 
         function setCell(cell , currentPlayer) {
@@ -61,10 +61,6 @@
             cell.value = currentPlayer;
             moves++;
 
-            if (this.checkForWin(currentPlayer)) {
-                this.setWinner(currentPlayer);
-                return false;
-            }
             return true;
         }
 
@@ -82,6 +78,7 @@
             }
             for (var i = 0; i < wins.length; i++) {
                 if ((wins[i] & users[currentPlayer].score) === wins[i]) {
+                    this.setWinner(currentPlayer);
                     return true;
                 }
             }
@@ -89,21 +86,10 @@
         }
 
         function setWinner(currentPlayer) {
+
             users[currentPlayer].wins++;
         }
 
-        function setUsersInfo(usersInfo) {
-            users = usersInfo;
-        }
-
-        function getUsersInfo(){
-            return users;
-        }
-
-        function incTurnsCount(){
-            turnsCounter++;
-            return turnsCounter;
-        }
 
         function getNumberOfGames(){
             return numOfGames;
@@ -132,8 +118,6 @@
             numOfGames = 0;
             users = usersInfo;
         }
-
-
     }
 
 })();
