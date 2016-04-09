@@ -30,12 +30,22 @@
 }
 
 .user-circle {
-    -webkit-animation-duration: 2s;
-    -webkit-animation-delay: 1s;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-delay: 0s;
     -webkit-animation-iteration-count: infinite;
 }
 
 .info-row{
     margin-top: 30px;
 }
+
+.score-row{
+    text-align: center;
+}
+
+.winning-body{
+    background-image: url('../assets/cup.png');
+}
+
+
 

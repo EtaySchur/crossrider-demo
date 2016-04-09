@@ -36,18 +36,16 @@ function MainCtrl(GameService , $uibModal , appConstants , $interval) {
             return;
         }
 
-        cell.value = GameService.getCurrentPlayer();
+        //cell.value = GameService.getCurrentPlayer();
 
-            if(GameService.setCell(cell)){
+            if(GameService.setCell(cell ,  vm.gameSetting.currentPlayer)){
                 if(GameService.getNumberOfMoves() === appConstants.BOARD_SIZE){
-                    GameService.incNumberOfGames();
                     openEndGameModal(null);
                 }else{
                     startNextTurn();
                 }
             }else{
-                //GameService.incNumberOfGames();
-                openEndGameModal(GameService.getCurrentPlayer());
+                openEndGameModal(vm.gameSetting.currentPlayer);
             }
 
     }
@@ -55,11 +53,13 @@ function MainCtrl(GameService , $uibModal , appConstants , $interval) {
     function startNextTurn (){
         //vm.gameSetting.turnsCount = GameService.incTurnsCount();
         $interval.cancel(vm.promise);
+        vm.gameSetting.currentPlayer = vm.gameSetting.currentPlayer === true ? false : true
+        console.log("Current Player is not ",vm.gameSetting.currentPlayer);
         vm.turnLengthInSeconds = appConstants.TURN_LENGTH;
         vm.promise = $interval(function(){
             vm.turnLengthInSeconds--;
             if(vm.turnLengthInSeconds === 0){
-                vm.gameSetting.currentPlayer =  GameService.pendingTurn();
+               // vm.gameSetting.currentPlayer =  GameService.pendingTurn();
                 $interval.cancel(vm.promise);
                 startNextTurn();
 
@@ -67,7 +67,28 @@ function MainCtrl(GameService , $uibModal , appConstants , $interval) {
         }, 1000);
     }
 
+    function openEndTournamentModal(){
+        var modalInstance = $uibModal.open({
+            animation: true ,
+            templateUrl: 'partials/tournament-modal.html',
+            controller: 'EndTournamentModalCtrl',
+            resolve: {
+                gameSetting: function () {
+                    return vm.gameSetting;
+                }
+            }
+        });
+
+
+        modalInstance.result.then(function () {
+
+        }, function () {
+
+        });
+    }
+
     function openEndGameModal( winner ){
+        console.log("We have a winniner ?" ,winner);
         $interval.cancel(vm.promise);
         vm.gameRunning = false;
         var modalInstance = $uibModal.open({
@@ -86,6 +107,12 @@ function MainCtrl(GameService , $uibModal , appConstants , $interval) {
 
 
         modalInstance.result.then(function () {
+            console.log(GameService.getNumberOfGames());
+            if(GameService.getNumberOfGames() === appConstants.MAX_NUMBER_OF_GAMES){
+                openEndTournamentModal();
+            }else{
+
+            }
                 // Restart Match
                 vm.init();
         }, function () {

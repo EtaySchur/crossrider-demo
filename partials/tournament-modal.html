@@ -1,0 +1,12 @@
+
+<div class="modal-header">
+    <h3 class="modal-title"> Tournament Complete </h3>
+</div>
+<div ng-class="{ 'winning-body' : gameSetting.users[true].wins !== gameSetting.users[false].wins , 'draw-body' : gameSetting.users[true].wins === gameSetting.users[false].wins}" class="modal-body">
+
+</div>
+<div class="modal-footer">
+    <button class="btn btn-warning" type="button" ng-click="cancel()">Exit tournament</button>
+    <button class="btn btn-primary" type="button" ng-click="ok()">Next match</button>
+
+</div>

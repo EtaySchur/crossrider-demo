@@ -8,7 +8,7 @@ angular.module('crossriderDemoApp')
         var gameService,
             moves = 0,
             numOfGames = 0,
-            currentPlayerTurn = true,
+            initPlayerTurn = false,
             board = [],
             users = {
                 true: {
@@ -44,16 +44,15 @@ angular.module('crossriderDemoApp')
                     currentPlayerTurn = !currentPlayerTurn;
                     return currentPlayerTurn;
                 },
-                setCell: function (cell) {
-                    users[currentPlayerTurn].score += cell.indicator;
-                    cell.value = currentPlayerTurn;
+                setCell: function (cell , currentPlayer) {
+                    users[currentPlayer].score += cell.indicator;
+                    cell.value = currentPlayer;
                     moves++;
 
-                    if (this.checkForWin()) {
-                        this.setWinner();
+                    if (this.checkForWin(currentPlayer)) {
+                        this.setWinner(currentPlayer);
                         return false;
                     }
-                    currentPlayerTurn = !currentPlayerTurn;
                     return true;
                 },
                 getCurrentPlayer: function () {
@@ -62,19 +61,19 @@ angular.module('crossriderDemoApp')
                 getNumberOfMoves: function () {
                     return moves;
                 },
-                checkForWin: function () {
+                checkForWin: function (currentPlayer) {
                     if ( moves <= 4) {
                         return false;
                     }
                     for (var i = 0; i < wins.length; i++) {
-                        if ((wins[i] & users[currentPlayerTurn].score) === wins[i]) {
+                        if ((wins[i] & users[currentPlayer].score) === wins[i]) {
                             return true;
                         }
                     }
                     return false;
                 },
-                setWinner: function () {
-                    users[currentPlayerTurn].wins++;
+                setWinner: function (currentPlayer) {
+                    users[currentPlayer].wins++;
                 },
                 setUsersInfo: function (usersInfo) {
                     users = usersInfo;
@@ -95,14 +94,14 @@ angular.module('crossriderDemoApp')
                 },
                 initNewMatch : function(){
                     board = this.initBoard();
-                    currentPlayerTurn = true;
+
                     moves = 0;
                     users[true].score = 0;
                     users[false].score = 0;
                     numOfGames++;
                     return {
                         board : board ,
-                        currentPlayersTurn : currentPlayerTurn ,
+                        currentPlayer : initPlayerTurn ,
                         users : users
                     }
                 }
