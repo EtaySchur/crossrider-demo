@@ -14,7 +14,7 @@
         var gameData = {
             moves : 0,
             numOfGames : 0,
-            initPlayerTurn : false,
+            initPlayerTurn : 'X',
             board : [],
             users : {}
         };
@@ -105,8 +105,8 @@
         function initNewMatch(){
             gameData.board = initBoard();
             gameData.moves = 0;
-            gameData.users[true].score = 0;
-            gameData.users[false].score = 0;
+            gameData.users['X'].score = 0;
+            gameData.users['O'].score = 0;
             gameData.numOfGames++;
             return {
                 board : gameData.board ,

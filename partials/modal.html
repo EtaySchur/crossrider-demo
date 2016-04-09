@@ -5,6 +5,7 @@
 <div class="modal-body">
     <div class="row score-row">
         <div class="col-xs-5">
+            <p ng-bind="gameSetting.users['O'].name"> </p>
             <div class="user-circle blue">O</div>
         </div>
         <div class="col-xs-2">
@@ -12,10 +13,11 @@
                Score
            </div>
             <div>
-                <span> {{gameSetting.users[true].wins}}  </span> :  <span> {{gameSetting.users[false].wins}} </span>
+                <span> {{gameSetting.users['O'].wins}}  </span> :  <span> {{gameSetting.users['X'].wins}} </span>
             </div>
         </div>
         <div class="col-xs-5">
+            <p ng-bind="gameSetting.users['X'].name"> </p>
             <div class="user-circle red">X</div>
         </div>
     </div>

@@ -14,7 +14,7 @@
         'use strict';
         var vm = this;
         vm.turnLengthInSeconds = appConstants.TURN_LENGTH;
-        vm.promise;
+        var timer;
         vm.cellClicked = cellClicked;
 
         function cellClicked( cell  ){
@@ -36,13 +36,13 @@
 
         function _init(){
             var users = {
-                    true: {
+                    'X': {
                         score: 0,
                         name: "Avi",
                         wins: 0
 
                     },
-                    false: {
+                    'O': {
                         score: 0,
                         name: "shlomi",
                         wins: 0
@@ -88,14 +88,15 @@
         }
 
         function startNextTurn (){
-            $interval.cancel(vm.promise);
-            vm.gameSetting.currentPlayer = vm.gameSetting.currentPlayer === true ? false : true
+            $interval.cancel(timer);
+            vm.gameSetting.currentPlayer = vm.gameSetting.currentPlayer === 'X' ? 'O' : 'X';
             vm.turnLengthInSeconds = appConstants.TURN_LENGTH;
-            vm.promise = $interval(function(){
+            timer = $interval(function(){
                 vm.turnLengthInSeconds--;
                 if(vm.turnLengthInSeconds === 0){
-                    $interval.cancel(vm.promise);
-                    startNextTurn();
+                    var winner = vm.gameSetting.currentPlayer === 'X' ? 'O' : 'X'
+                    GameService.setWinner(winner);
+                    openEndGameModal(winner);
 
                 }
             }, 1000);
@@ -105,6 +106,7 @@
             vm.gameRunning = false;
             var modalInstance = $uibModal.open({
                 animation: true ,
+                backdrop : 'static'  ,
                 templateUrl: 'partials/tournament-modal.html',
                 controller: 'EndTournamentModalCtrl',
                 resolve: {
@@ -124,10 +126,11 @@
 
         function openEndGameModal( winner ){
             vm.gameRunning = false;
-            $interval.cancel(vm.promise);
+            $interval.cancel(timer);
 
             var modalInstance = $uibModal.open({
                 animation: true ,
+                backdrop : 'static'  ,
                 templateUrl: 'partials/modal.html',
                 controller: 'ModalCtrl',
                 resolve: {
