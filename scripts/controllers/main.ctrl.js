@@ -6,7 +6,6 @@
 
 
 (function(){
-
     angular.module('crossriderDemoApp')
         .controller('MainCtrl', MainCtrl);
 
@@ -21,15 +20,14 @@
             if(cell.value !==  null){
                 return;
             }
-            //cell.value = GameService.getCurrentPlayer();
             if(GameService.setCell(cell ,  vm.gameSetting.currentPlayer)){
                 if(GameService.getNumberOfMoves() === appConstants.BOARD_SIZE){
-                    openEndGameModal(null);
+                    openEndMatchModal(null);
                 }else{
                     startNextTurn();
                 }
             }else{
-                openEndGameModal(vm.gameSetting.currentPlayer);
+                openEndMatchModal(vm.gameSetting.currentPlayer);
             }}
 
         ///////////////////Private///////////////////
@@ -49,12 +47,12 @@
                     }
                 };
             GameService.initNewTournament(users);
-            _playNewGame();
+            _playNewMatch();
         }
 
 
 
-        function _playNewGame(){
+        function _playNewMatch(){
             vm.gameSetting = GameService.initNewMatch();
             console.log(vm.gameSetting);
             startNextTurn();
@@ -71,15 +69,15 @@
             // Setting cell value
             GameService.setCell(cell ,  vm.gameSetting.currentPlayer);
 
-            // Check if we have a wiiner :)
+            // Check if we have a winner :)
             if(GameService.checkForWin(vm.gameSetting.currentPlayer)){
-                openEndGameModal(vm.gameSetting.currentPlayer);
+                openEndMatchModal(vm.gameSetting.currentPlayer);
                 return;
             };
 
             // Check if all moved were made and end game with draw
             if(GameService.getNumberOfMoves() === appConstants.BOARD_SIZE){
-                openEndGameModal(null);
+                openEndMatchModal(null);
                 return;
             }
 
@@ -96,7 +94,7 @@
                 if(vm.turnLengthInSeconds === 0){
                     var winner = vm.gameSetting.currentPlayer === 'X' ? 'O' : 'X'
                     GameService.setWinner(winner);
-                    openEndGameModal(winner);
+                    openEndMatchModal(winner);
 
                 }
             }, 1000);
@@ -109,6 +107,7 @@
                 backdrop : 'static'  ,
                 templateUrl: 'partials/tournament-modal.html',
                 controller: 'EndTournamentModalCtrl',
+                controllerAs : 'endTournamentModalCtrl',
                 resolve: {
                     gameSetting: function () {
                         return vm.gameSetting;
@@ -124,7 +123,7 @@
             });
         }
 
-        function openEndGameModal( winner ){
+        function openEndMatchModal( winner ){
             vm.gameRunning = false;
             $interval.cancel(timer);
 
@@ -132,7 +131,8 @@
                 animation: true ,
                 backdrop : 'static'  ,
                 templateUrl: 'partials/modal.html',
-                controller: 'ModalCtrl',
+                controller: 'EndMatchModalCtrl',
+                controllerAs : 'endMatchCtrl',
                 resolve: {
                     gameSetting: function () {
                         return vm.gameSetting;
@@ -143,20 +143,20 @@
                 }
             });
 
-
             modalInstance.result.then(function () {
-                console.log(GameService.getNumberOfGames());
                 if(vm.gameSetting.users[vm.gameSetting.currentPlayer].wins === ((Math.ceil(appConstants.MAX_NUMBER_OF_GAMES / 2)))){
+                    // Tournament End ...
                     openEndTournamentModal();
                 }else{
-                    // Restart Match
-                    _playNewGame();
+                    // Still have games to play , play new match
+                    _playNewMatch();
                 }
             }, function () {
 
             });
         }
 
+        // Init Game
         _init();
 
     };

@@ -7,10 +7,10 @@
 angular.module('crossriderDemoApp')
     .controller('EndTournamentModalCtrl', EndTournamentModalCtrl);
 
-function EndTournamentModalCtrl($scope, $uibModalInstance , gameSetting ) {
+function EndTournamentModalCtrl( $uibModalInstance , gameSetting ) {
     'use strict';
 
-    var vm = $scope;
+    var vm = this;
     vm.gameSetting = gameSetting;
 
     vm.ok = function () {

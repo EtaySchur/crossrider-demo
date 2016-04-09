@@ -5,7 +5,7 @@
 <div class="modal-body">
     <div class="row score-row">
         <div class="col-xs-5">
-            <p ng-bind="gameSetting.users['O'].name"> </p>
+            <p ng-bind="endMatchCtrl.gameSetting.users['O'].name"> </p>
             <div class="user-circle blue">O</div>
         </div>
         <div class="col-xs-2">
@@ -13,16 +13,16 @@
                Score
            </div>
             <div>
-                <span> {{gameSetting.users['O'].wins}}  </span> :  <span> {{gameSetting.users['X'].wins}} </span>
+                <span> {{endMatchCtrl.gameSetting.users['O'].wins}}  </span> :  <span> {{endMatchCtrl.gameSetting.users['X'].wins}} </span>
             </div>
         </div>
         <div class="col-xs-5">
-            <p ng-bind="gameSetting.users['X'].name"> </p>
+            <p ng-bind="endMatchCtrl.gameSetting.users['X'].name"> </p>
             <div class="user-circle red">X</div>
         </div>
     </div>
 </div>
 <div class="modal-footer">
-    <button class="btn btn-warning" type="button" ng-click="cancel()">Exit tournament</button>
-    <button class="btn btn-primary" type="button" ng-click="ok()">Next</button>
+    <button class="btn btn-warning" type="button" ng-click="endMatchCtrl.cancel()">Exit tournament</button>
+    <button class="btn btn-primary" type="button" ng-click="endMatchCtrl.ok()">Next</button>
 </div>

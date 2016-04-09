@@ -4,16 +4,15 @@
 
 
 angular.module('crossriderDemoApp')
-    .controller('ModalCtrl', ModalCtrl);
+    .controller('EndMatchModalCtrl', EndMatchModalCtrl);
 
-function ModalCtrl($scope, $uibModalInstance , gameSetting , winner) {
+function EndMatchModalCtrl( $uibModalInstance , gameSetting , winner) {
     'use strict';
 
-    var vm = $scope;
+    var vm = this;
     vm.winner = winner;
     vm.modalTitle = winner !== null ? gameSetting.users[winner].name + ' won this game ! Congras ! ' : 'A drew ! Nice match ! ' ;
     vm.gameSetting = gameSetting;
-    console.log("Game Settings ? ",gameSetting);
 
     vm.ok = function () {
         $uibModalInstance.close();
