@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5e4047e9-5f95-4bb5-a49c-ef2a4552555a" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/controllers/main.ctrl.js" afterPath="$PROJECT_DIR$/scripts/controllers/main.ctrl.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/controllers/modal.ctrl.js" afterPath="$PROJECT_DIR$/scripts/controllers/modal.ctrl.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/partials/modal.html" afterPath="$PROJECT_DIR$/partials/modal.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/controllers/tournament-modal.ctrl.js" afterPath="$PROJECT_DIR$/scripts/controllers/tournament-modal.ctrl.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/partials/tournament-modal.html" afterPath="$PROJECT_DIR$/partials/tournament-modal.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="crossrider-demo.iws" />
@@ -45,11 +41,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="tournament-modal.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="tournament-modal.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/partials/tournament-modal.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.31598514" vertical-offset="0" max-vertical-offset="538">
-              <caret line="10" column="82" selection-start-line="10" selection-start-column="82" selection-end-line="10" selection-end-column="82" />
+            <state vertical-scroll-proportion="-1.2592592" vertical-offset="0" max-vertical-offset="289">
+              <caret line="4" column="21" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -95,11 +91,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="modal.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="modal.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/partials/modal.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-15.692307" vertical-offset="0" max-vertical-offset="561">
-              <caret line="24" column="26" selection-start-line="24" selection-start-column="26" selection-end-line="24" selection-end-column="26" />
+            <state vertical-scroll-proportion="0.21024735" vertical-offset="0" max-vertical-offset="566">
+              <caret line="7" column="54" selection-start-line="6" selection-start-column="30" selection-end-line="7" selection-end-column="54" />
               <folding />
             </state>
           </provider>
@@ -162,8 +158,8 @@
         <option value="$PROJECT_DIR$/scripts/controllers/modal.ctrl.js" />
         <option value="$PROJECT_DIR$/scripts/controllers/tournament-modal.ctrl.js" />
         <option value="$PROJECT_DIR$/scripts/controllers/main.ctrl.js" />
-        <option value="$PROJECT_DIR$/partials/modal.html" />
         <option value="$PROJECT_DIR$/partials/tournament-modal.html" />
+        <option value="$PROJECT_DIR$/partials/modal.html" />
       </list>
     </option>
   </component>
@@ -486,7 +482,13 @@
       <option name="project" value="LOCAL" />
       <updated>1460236452440</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="fine tune">
+      <created>1460236999428</created>
+      <option name="number" value="00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1460236999428</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -494,7 +496,7 @@
     <editor active="false" />
     <layout>
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32900432" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32900432" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -718,18 +720,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/partials/modal.html">
+    <entry file="file://$PROJECT_DIR$/partials/tournament-modal.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-15.692307" vertical-offset="0" max-vertical-offset="561">
-          <caret line="24" column="26" selection-start-line="24" selection-start-column="26" selection-end-line="24" selection-end-column="26" />
+        <state vertical-scroll-proportion="-1.2592592" vertical-offset="0" max-vertical-offset="289">
+          <caret line="4" column="21" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="21" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/partials/tournament-modal.html">
+    <entry file="file://$PROJECT_DIR$/partials/modal.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.31598514" vertical-offset="0" max-vertical-offset="538">
-          <caret line="10" column="82" selection-start-line="10" selection-start-column="82" selection-end-line="10" selection-end-column="82" />
+        <state vertical-scroll-proportion="0.21024735" vertical-offset="0" max-vertical-offset="566">
+          <caret line="7" column="54" selection-start-line="6" selection-start-column="30" selection-end-line="7" selection-end-column="54" />
           <folding />
         </state>
       </provider>
