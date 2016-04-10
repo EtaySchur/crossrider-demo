@@ -73,12 +73,12 @@
                 vm.gameSetting = GameService.initNewMatch();
             }
             //_play();
-            vm.gameRunning = true;
             startTimer();
 
         }
 
         function startTimer(){
+            vm.gameRunning = true;
             $interval.cancel(timer);
             //vm.gameSetting.currentPlayer = GameService.togglePlayer(vm.gameSetting.currentPlayer);
             // vm.gameSetting.currentPlayer = vm.gameSetting.currentPlayer === 'X' ? 'O' : 'X';
@@ -148,7 +148,7 @@
                 }else{
                     // Still have games to play , play new match
                     vm.gameSetting = GameService.initNewMatch();
-                    vm.gameRunning = true;
+
                     startTimer();
                 }
             }, function () {
