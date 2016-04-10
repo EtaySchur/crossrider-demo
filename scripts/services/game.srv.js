@@ -27,14 +27,13 @@
                 getNumberOfMoves    :   getNumberOfMoves,
                 checkForWin         :   checkForWin,
                 setWinner           :   setWinner,
-                getNumberOfGames    :   getNumberOfGames,
-                incNumberOfGames    :   incNumberOfGames,
                 initNewMatch        :   initNewMatch,
                 initNewTournament   :   initNewTournament,
                 isCellEmpty         :   isCellEmpty,
                 setGameData         :   setGameData,
                 togglePlayer        :   togglePlayer,
-                endTournament       :   endTournament
+                endTournament       :   endTournament,
+                clearData           :   clearData
             };
         ////////////////////////////////////////////////////////////////////////////////////////////////
         return gameService;
@@ -79,6 +78,18 @@
             gameData = gameDataObject;
         }
 
+        function clearData(){
+            gameData = {
+                moves : 0,
+                numOfGames : 0,
+                currentPlayer : 'X',
+                board : [],
+                users : {}
+            };
+
+            return gameData;
+        }
+
 
 
         function getNumberOfMoves() {
@@ -100,16 +111,6 @@
 
         function setWinner(currentPlayer) {
             gameData.users[currentPlayer].wins++;
-        }
-
-
-        function getNumberOfGames(){
-            return gameData.numOfGames;
-        }
-
-        function incNumberOfGames(){
-            gameData.numOfGames++;
-            return gameData.numOfGames;
         }
 
         function initNewMatch(){

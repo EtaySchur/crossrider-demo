@@ -29,11 +29,13 @@
     background-color: #337ab7;
 }
 
-.user-circle {
+.user-circle .pulse {
     -webkit-animation-duration: 1s;
     -webkit-animation-delay: 0s;
     -webkit-animation-iteration-count: infinite;
 }
+
+
 
 .info-row{
     margin-top: 30px;

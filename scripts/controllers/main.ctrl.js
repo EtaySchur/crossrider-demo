@@ -55,27 +55,21 @@
                if(GameService.checkForWin(vm.gameSetting.currentPlayer)){
                    openEndMatchModal(vm.gameSetting.currentPlayer);
                }else{
+                   // Continue from where game stopped
                    startTurn();
                }
             }else{
                 openNewUsersModal();
-                //var users = {
-                //    'X': {
-                //        score: 0,
-                //        name: "Avi",
-                //        wins: 0
-                //
-                //    },
-                //    'O': {
-                //        score: 0,
-                //        name: "shlomi",
-                //        wins: 0
-                //    }
-                //};
-                //GameService.initNewTournament(users);
-                //vm.gameSetting = GameService.initNewMatch();
             }
-            //_play();
+
+        }
+
+
+
+
+        function startTurn(){
+            vm.gameRunning = true;
+            startTimer();
         }
 
         function startTimer(){
@@ -92,12 +86,9 @@
             }, 1000);
         }
 
-        function startTurn(){
-            vm.gameRunning = true;
-            startTimer();
-        }
 
 
+        ////////////////// MODALS SECTION ///////////////////////
 
         function openNewUsersModal(){
             var modalInstance = $uibModal.open({
@@ -139,8 +130,13 @@
 
 
             modalInstance.result.then(function () {
+                // Clear All Data From Service
+                vm.gameSetting = GameService.clearData();
+                // Start Another Tournament
                 _init();
             }, function () {
+                // Clear All Data From Service
+                vm.gameSetting = GameService.clearData();
             });
         }
 
@@ -175,6 +171,9 @@
                 }
             });
         }
+
+
+        ////////////////////////////// END OF MODALS SECTION ///////////////////////
 
         // Init Game
         _init();
