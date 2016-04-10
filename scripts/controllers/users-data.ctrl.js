@@ -6,8 +6,17 @@
 angular.module('crossriderDemoApp')
     .controller('UsersDataModalCtrl', UsersDataModalCtrl);
 
-function UsersDataModalCtrl($uibModalInstance ) {
+function UsersDataModalCtrl( $scope , $uibModalInstance ) {
     'use strict';
+
+    socket.on('user-logged-in', function(users){
+        console.log("USERS LOGGED IN " , users);
+        vm.users = users;
+        $scope.$apply();
+        if(users['X'].name && users['O'].name){
+            vm.ok();
+        }
+    });
 
     var vm = this;
     vm.users = {

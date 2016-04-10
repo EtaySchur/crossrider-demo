@@ -9,7 +9,7 @@
     angular.module('crossriderDemoApp')
         .controller('MainCtrl', MainCtrl);
 
-    function MainCtrl(GameService , $uibModal , appConstants , $interval , $cookies) {
+    function MainCtrl($scope , GameService , $uibModal , appConstants , $interval , $cookies) {
         'use strict';
         var vm = this;
         var timer;
@@ -65,6 +65,8 @@
         }
 
         socket.on('update-data', function(gameData){
+            vm.gameSetting = gameData;
+            $scope.$apply();
            console.log("I have Updated Data ! ",gameData);
         });
 
@@ -74,7 +76,7 @@
         function startTurn(){
             socket.emit('update-data',vm.gameSetting);
             vm.gameRunning = true;
-            startTimer();
+            //startTimer();
         }
 
         function startTimer(){
@@ -86,7 +88,6 @@
                     var winner = vm.gameSetting.currentPlayer === 'X' ? 'O' : 'X';
                     GameService.setWinner(winner);
                     openEndMatchModal(winner);
-
                 }
             }, 1000);
         }
@@ -111,6 +112,7 @@
                 GameService.initNewTournament(users);
                 vm.gameSetting = GameService.initNewMatch();
                 // Lets Start
+                socket.emit('user-logged-in', users);
                 startTurn();
             }, function () {
 

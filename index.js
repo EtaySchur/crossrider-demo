@@ -16,7 +16,9 @@ app.get('/', function(req, res){
 });
 
 io.on('connection', function(socket){
-    console.log('a user connected');
+
+
+
     socket.on('disconnect', function(){
         console.log('user disconnected');
     });
@@ -24,6 +26,12 @@ io.on('connection', function(socket){
     socket.on('update-data', function(gameData){
         io.emit('update-data', gameData );
     });
+
+    socket.on('user-logged-in', function(userData){
+        console.log(" USER LOGGED IN ! ",userData);
+        io.emit('user-logged-in', userData );
+    });
+
 
 
 });
