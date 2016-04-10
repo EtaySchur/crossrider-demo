@@ -12,7 +12,7 @@ function EndTournamentModalCtrl( $uibModalInstance , gameSetting ) {
 
     var vm = this;
     vm.gameSetting = gameSetting;
-
+    vm.winner =  vm.gameSetting.users['X'].wins > vm.gameSetting.users['O'].wins ? vm.gameSetting.users['X'] : vm.gameSetting.users['O'];
     vm.ok = function () {
         $uibModalInstance.close();
     };

@@ -29,7 +29,7 @@
     background-color: #337ab7;
 }
 
-.user-circle .pulse {
+.user-circle  {
     -webkit-animation-duration: 1s;
     -webkit-animation-delay: 0s;
     -webkit-animation-iteration-count: infinite;

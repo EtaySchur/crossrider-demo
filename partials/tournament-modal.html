@@ -1,9 +1,10 @@
 
 <div class="modal-header">
-    <h3 class="modal-title"> Tournament Complete </h3>
+    <h3 class="modal-title"> Tournament Complete - {{ endTournamentModalCtrl.winner.name }} Is The Winner !
+    </h3>
+
 </div>
-<div ng-class="{ 'winning-body' : endTournamentModalCtrl.gameSetting.users['X'].wins !== endTournamentModalCtrl.gameSetting.users['O'].wins ,
-                 'draw-body' : endTournamentModalCtrl.gameSetting.users['X'].wins === endTournamentModalCtrl.gameSetting.users['O'].wins}" class="modal-body">
+<div  class="modal-body winning-body">
 
 </div>
 <div class="modal-footer">

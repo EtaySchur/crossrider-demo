@@ -147,7 +147,7 @@
             var modalInstance = $uibModal.open({
                 animation: true ,
                 backdrop : 'static'  ,
-                templateUrl: 'partials/modal.html',
+                templateUrl: 'partials/end-match-modal.html',
                 controller: 'EndMatchModalCtrl',
                 controllerAs : 'endMatchCtrl',
                 resolve: {

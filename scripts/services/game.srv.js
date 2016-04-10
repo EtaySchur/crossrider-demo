@@ -66,7 +66,6 @@
 
 
         function setCell(cell , currentPlayer) {
-            console.log(" Setting Cell ",gameData);
             gameData.users[currentPlayer].score += cell.indicator;
             cell.value = currentPlayer;
             gameData.moves++;
