@@ -1,7 +1,10 @@
-
 {
-    "name": "cross-rider-demo-app",
-    "version": "0.0.1",
-    "description": "my first socket.io app",
-    "dependencies": {}
+  "name": "crossrider-demo-app",
+  "version": "0.0.1",
+  "description": "crossrider-demo-app",
+  "dependencies": {},
+  "devDependencies": {
+    "angular-mocks": "^1.5.3",
+    "karma-phantomjs-launcher": "^1.0.0"
+  }
 }
