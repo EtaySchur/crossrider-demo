@@ -64,10 +64,15 @@
 
         }
 
+        socket.on('update-data', function(gameData){
+           console.log("I have Updated Data ! ",gameData);
+        });
+
 
 
 
         function startTurn(){
+            socket.emit('update-data',vm.gameSetting);
             vm.gameRunning = true;
             startTimer();
         }
