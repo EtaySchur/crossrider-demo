@@ -6,12 +6,13 @@
 angular.module('crossriderDemoApp')
     .controller('UsersDataModalCtrl', UsersDataModalCtrl);
 
-function UsersDataModalCtrl($scope, $uibModalInstance ) {
+function UsersDataModalCtrl($uibModalInstance ) {
     'use strict';
 
-    var vm = $scope;
+    var vm = this;
     vm.users = {
-
+        'X' : {} ,
+        'O' : {}
     };
 
     vm.ok = function () {

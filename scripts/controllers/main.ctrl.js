@@ -12,29 +12,35 @@
     function MainCtrl(GameService , $uibModal , appConstants , $interval , $cookies) {
         'use strict';
         var vm = this;
-        vm.turnLengthInSeconds = appConstants.TURN_LENGTH;
         var timer;
+        vm.turnLengthInSeconds = appConstants.TURN_LENGTH;
         vm.cellClicked = cellClicked;
 
         function cellClicked( cell  ){
-            if(cell.value !==  null){
+            // Check if cell is empty
+            if(!GameService.isCellEmpty(cell)){
                 return;
             }
-            if(GameService.setCell(cell ,  vm.gameSetting.currentPlayer)){
-                if(GameService.getNumberOfMoves() === appConstants.BOARD_SIZE){
-                    openEndMatchModal(null);
-                }else{
-                    startNextTurn();
-                }
-            }else{
+
+            // Setting cell value
+            GameService.setCell(cell ,  vm.gameSetting.currentPlayer);
+
+            // Check if we have a winner :)
+            if(GameService.checkForWin(vm.gameSetting.currentPlayer)){
                 openEndMatchModal(vm.gameSetting.currentPlayer);
-            }}
+                return;
+            };
 
+            // Check if all moved were made and end game with draw
+            if(GameService.getNumberOfMoves() === appConstants.BOARD_SIZE){
+                openEndMatchModal(null);
+                return;
+            }
 
-
-
-
-
+            // Toggle user & continue to next turn
+            vm.gameSetting.currentPlayer = GameService.togglePlayer(vm.gameSetting.currentPlayer);
+            startTimer();
+        }
 
         ///////////////////Private///////////////////
 
@@ -68,46 +74,14 @@
             }
             //_play();
             vm.gameRunning = true;
+            startTimer();
 
         }
 
-
-
-        function _play(){
-            startNextTurn();
-            vm.gameRunning = true;
-        }
-
-
-        vm.cellClicked = function ( cell  ){
-            // Check if cell is empty
-            if(!GameService.isCellEmpty(cell)){
-                return;
-            }
-
-            // Setting cell value
-            GameService.setCell(cell ,  vm.gameSetting.currentPlayer);
-
-            // Check if we have a winner :)
-            if(GameService.checkForWin(vm.gameSetting.currentPlayer)){
-                openEndMatchModal(vm.gameSetting.currentPlayer);
-                return;
-            };
-
-            // Check if all moved were made and end game with draw
-            if(GameService.getNumberOfMoves() === appConstants.BOARD_SIZE){
-                openEndMatchModal(null);
-                return;
-            }
-
-            // Continue to next turn
-            startNextTurn();
-        }
-
-        function startNextTurn (){
+        function startTimer(){
             $interval.cancel(timer);
-            vm.gameSetting.currentPlayer = GameService.togglePlayer(vm.gameSetting.currentPlayer);
-           // vm.gameSetting.currentPlayer = vm.gameSetting.currentPlayer === 'X' ? 'O' : 'X';
+            //vm.gameSetting.currentPlayer = GameService.togglePlayer(vm.gameSetting.currentPlayer);
+            // vm.gameSetting.currentPlayer = vm.gameSetting.currentPlayer === 'X' ? 'O' : 'X';
             console.log("This is my current play ",vm.gameSetting.currentPlayer);
             vm.turnLengthInSeconds = appConstants.TURN_LENGTH;
             timer = $interval(function(){
@@ -120,6 +94,8 @@
                 }
             }, 1000);
         }
+
+
 
         function openEndTournamentModal(){
             GameService.endTournament();
@@ -172,7 +148,8 @@
                 }else{
                     // Still have games to play , play new match
                     vm.gameSetting = GameService.initNewMatch();
-                    _play();
+                    vm.gameRunning = true;
+                    startTimer();
                 }
             }, function () {
 

@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5e4047e9-5f95-4bb5-a49c-ef2a4552555a" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/services/game.srv.js" afterPath="$PROJECT_DIR$/scripts/services/game.srv.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/controllers/main.ctrl.js" afterPath="$PROJECT_DIR$/scripts/controllers/main.ctrl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/controllers/users-data.ctrl.js" afterPath="$PROJECT_DIR$/scripts/controllers/users-data.ctrl.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="crossrider-demo.iws" />
@@ -61,11 +62,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.ctrl.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="main.ctrl.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/scripts/controllers/main.ctrl.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-13.392858" vertical-offset="662" max-vertical-offset="3298">
-              <caret line="61" column="39" selection-start-line="61" selection-start-column="39" selection-end-line="61" selection-end-column="39" />
+            <state vertical-scroll-proportion="0.6046099" vertical-offset="2243" max-vertical-offset="2907">
+              <caret line="152" column="17" selection-start-line="152" selection-start-column="17" selection-end-line="152" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -74,8 +75,8 @@
       <file leaf-file-name="users-data-modal.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/partials/users-data-modal.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="221" max-vertical-offset="476">
-              <caret line="13" column="29" selection-start-line="13" selection-start-column="29" selection-end-line="13" selection-end-column="29" />
+            <state vertical-scroll-proportion="-13.076923" vertical-offset="0" max-vertical-offset="476">
+              <caret line="20" column="82" selection-start-line="20" selection-start-column="82" selection-end-line="20" selection-end-column="82" />
               <folding />
             </state>
           </provider>
@@ -84,8 +85,8 @@
       <file leaf-file-name="users-data.ctrl.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/scripts/controllers/users-data.ctrl.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="357" max-vertical-offset="510">
-              <caret line="21" column="44" selection-start-line="21" selection-start-column="44" selection-end-line="21" selection-end-column="44" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="527">
+              <caret line="15" column="6" selection-start-line="15" selection-start-column="6" selection-end-line="15" selection-end-column="6" />
               <folding />
             </state>
           </provider>
@@ -123,11 +124,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="game.srv.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="game.srv.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/scripts/services/game.srv.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.27304965" vertical-offset="1869" max-vertical-offset="2618">
-              <caret line="119" column="39" selection-start-line="119" selection-start-column="39" selection-end-line="119" selection-end-column="39" />
+            <state vertical-scroll-proportion="-9.214286" vertical-offset="1697" max-vertical-offset="2618">
+              <caret line="115" column="41" selection-start-line="115" selection-start-column="41" selection-end-line="115" selection-end-column="41" />
               <folding />
             </state>
           </provider>
@@ -152,14 +153,14 @@
         <option value="$PROJECT_DIR$/styles/styles.css" />
         <option value="$PROJECT_DIR$/scripts/app.js" />
         <option value="$PROJECT_DIR$/partials/users-data-modal.html" />
-        <option value="$PROJECT_DIR$/scripts/controllers/users-data.ctrl.js" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/scripts/controllers/modal.ctrl.js" />
         <option value="$PROJECT_DIR$/scripts/controllers/tournament-modal.ctrl.js" />
         <option value="$PROJECT_DIR$/partials/tournament-modal.html" />
         <option value="$PROJECT_DIR$/partials/modal.html" />
-        <option value="$PROJECT_DIR$/scripts/controllers/main.ctrl.js" />
         <option value="$PROJECT_DIR$/scripts/services/game.srv.js" />
+        <option value="$PROJECT_DIR$/scripts/controllers/users-data.ctrl.js" />
+        <option value="$PROJECT_DIR$/scripts/controllers/main.ctrl.js" />
       </list>
     </option>
   </component>
@@ -320,6 +321,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
     <property name="LayoutCode.rearrangeEntriesJavaScript" value="false" />
+    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://C:/Users/EtaySchur/Projects/crossrider-demo/scripts/services/game.srv.js" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -506,7 +508,13 @@
       <option name="project" value="LOCAL" />
       <updated>1460244842469</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="save winning state in cookie">
+      <created>1460244875710</created>
+      <option name="number" value="00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1460244875710</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -753,22 +761,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/partials/users-data-modal.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="221" max-vertical-offset="476">
-          <caret line="13" column="29" selection-start-line="13" selection-start-column="29" selection-end-line="13" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/controllers/users-data.ctrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="510">
-          <caret line="21" column="44" selection-start-line="21" selection-start-column="44" selection-end-line="21" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/scripts/app.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="374">
@@ -822,18 +814,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/controllers/main.ctrl.js">
+    <entry file="file://$PROJECT_DIR$/scripts/services/game.srv.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.392858" vertical-offset="662" max-vertical-offset="3298">
-          <caret line="61" column="39" selection-start-line="61" selection-start-column="39" selection-end-line="61" selection-end-column="39" />
+        <state vertical-scroll-proportion="-9.214286" vertical-offset="1697" max-vertical-offset="2618">
+          <caret line="115" column="41" selection-start-line="115" selection-start-column="41" selection-end-line="115" selection-end-column="41" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/services/game.srv.js">
+    <entry file="file://$PROJECT_DIR$/partials/users-data-modal.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.27304965" vertical-offset="1869" max-vertical-offset="2618">
-          <caret line="119" column="39" selection-start-line="119" selection-start-column="39" selection-end-line="119" selection-end-column="39" />
+        <state vertical-scroll-proportion="-13.076923" vertical-offset="0" max-vertical-offset="476">
+          <caret line="20" column="82" selection-start-line="20" selection-start-column="82" selection-end-line="20" selection-end-column="82" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/controllers/users-data.ctrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="527">
+          <caret line="15" column="6" selection-start-line="15" selection-start-column="6" selection-end-line="15" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/controllers/main.ctrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6046099" vertical-offset="2243" max-vertical-offset="2907">
+          <caret line="152" column="17" selection-start-line="152" selection-start-column="17" selection-end-line="152" selection-end-column="17" />
           <folding />
         </state>
       </provider>
