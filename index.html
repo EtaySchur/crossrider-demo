@@ -52,7 +52,7 @@
         <div style="margin-top: 200px" class="row">
             <div class="col-md-4 col-md-offset-4">
                 <div  ng-repeat="cell in ctrl.gameSetting.board track by $index" class="col-xs-4 board-cell">
-                    <button ng-class="{'btn-primary' : cell.value === 'O' , 'btn-danger' : cell.value === 'X'}" ng-click="ctrl.cellClicked(cell)" class="btn btn-default btn-lg">
+                    <button ng-disabled="" ng-class="{'btn-primary' : cell.value === 'O' , 'btn-danger' : cell.value === 'X'}" ng-click="ctrl.cellClicked(cell)" class="btn btn-default btn-lg">
                         <div ng-show="cell.value === 'O'" class="cell-player-indicator"> O  </div>
                         <div ng-show="cell.value === 'X'" class="cell-player-indicator"> X  </div>
                         <div ng-show="cell.value === null" class="cell-player-indicator"> +  </div>

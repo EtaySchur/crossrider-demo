@@ -6,6 +6,7 @@ var express   = require('express');
 var app      = express();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
+var connectedCount = 0;
 
 app.get('/', function(req, res){
     app.use("/styles", express.static(__dirname + '/styles'));
@@ -17,18 +18,22 @@ app.get('/', function(req, res){
 
 io.on('connection', function(socket){
 
-
+    connectedCount += 1;
 
     socket.on('disconnect', function(){
-        console.log('user disconnected');
+        connectedCount -= 1;
     });
 
     socket.on('update-data', function(gameData){
         io.emit('update-data', gameData );
     });
 
+    socket.on('check-for-online-user', function(users){
+        io.emit('check-for-online-user', connectedCount );
+    });
+
+
     socket.on('user-logged-in', function(userData){
-        console.log(" USER LOGGED IN ! ",userData);
         io.emit('user-logged-in', userData );
     });
 

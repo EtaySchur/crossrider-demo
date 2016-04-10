@@ -76,7 +76,7 @@
         function startTurn(){
             socket.emit('update-data',vm.gameSetting);
             vm.gameRunning = true;
-            //startTimer();
+            startTimer();
         }
 
         function startTimer(){

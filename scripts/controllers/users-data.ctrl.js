@@ -18,6 +18,12 @@ function UsersDataModalCtrl( $scope , $uibModalInstance ) {
         }
     });
 
+    socket.emit('check-for-online-user');
+
+
+
+
+
     var vm = this;
     vm.users = {
         'X' : {} ,
@@ -31,4 +37,14 @@ function UsersDataModalCtrl( $scope , $uibModalInstance ) {
     vm.cancel = function () {
         $uibModalInstance.dismiss('cancel');
     };
+
+    socket.on('check-for-online-user', function(numOfUsers){
+        if(numOfUsers === 1){
+
+        }
+
+        if(numOfUsers === 2){
+
+        }
+    });
 };
