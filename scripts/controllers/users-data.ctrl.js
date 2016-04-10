@@ -11,12 +11,18 @@ function UsersDataModalCtrl($uibModalInstance ) {
 
     var vm = this;
     vm.users = {
-        'X' : {} ,
-        'O' : {}
+        'X' : {
+            score : 0 ,
+            wins : 0
+        } ,
+        'O' : {
+            score : 0 ,
+            wins : 0
+        }
     };
 
     vm.ok = function () {
-        $uibModalInstance.close();
+        $uibModalInstance.close(vm.users);
     };
 
     vm.cancel = function () {

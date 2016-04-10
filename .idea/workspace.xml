@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5e4047e9-5f95-4bb5-a49c-ef2a4552555a" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/services/game.srv.js" afterPath="$PROJECT_DIR$/scripts/services/game.srv.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/controllers/main.ctrl.js" afterPath="$PROJECT_DIR$/scripts/controllers/main.ctrl.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/partials/users-data-modal.html" afterPath="$PROJECT_DIR$/partials/users-data-modal.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/controllers/users-data.ctrl.js" afterPath="$PROJECT_DIR$/scripts/controllers/users-data.ctrl.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="crossrider-demo.iws" />
@@ -31,8 +35,8 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="233" max-vertical-offset="1054">
-              <caret line="32" column="67" selection-start-line="32" selection-start-column="67" selection-end-line="32" selection-end-column="67" />
+            <state vertical-scroll-proportion="-4.769231" vertical-offset="29" max-vertical-offset="1071">
+              <caret line="9" column="7" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -61,11 +65,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.ctrl.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="main.ctrl.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/scripts/controllers/main.ctrl.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.4539007" vertical-offset="1172" max-vertical-offset="2907">
-              <caret line="84" column="59" selection-start-line="84" selection-start-column="59" selection-end-line="84" selection-end-column="59" />
+            <state vertical-scroll-proportion="-4.892857" vertical-offset="968" max-vertical-offset="3281">
+              <caret line="65" column="33" selection-start-line="63" selection-start-column="25" selection-end-line="65" selection-end-column="33" />
               <folding />
             </state>
           </provider>
@@ -74,18 +78,18 @@
       <file leaf-file-name="users-data-modal.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/partials/users-data-modal.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-13.076923" vertical-offset="0" max-vertical-offset="476">
-              <caret line="20" column="82" selection-start-line="20" selection-start-column="82" selection-end-line="20" selection-end-column="82" />
+            <state vertical-scroll-proportion="-2.6153846" vertical-offset="0" max-vertical-offset="476">
+              <caret line="4" column="25" selection-start-line="4" selection-start-column="25" selection-end-line="4" selection-end-column="25" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="users-data.ctrl.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="users-data.ctrl.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/scripts/controllers/users-data.ctrl.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="527">
-              <caret line="15" column="6" selection-start-line="15" selection-start-column="6" selection-end-line="15" selection-end-column="6" />
+            <state vertical-scroll-proportion="0.20101352" vertical-offset="0" max-vertical-offset="629">
+              <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -126,8 +130,8 @@
       <file leaf-file-name="game.srv.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/scripts/services/game.srv.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.214286" vertical-offset="1697" max-vertical-offset="2618">
-              <caret line="115" column="41" selection-start-line="115" selection-start-column="41" selection-end-line="115" selection-end-column="41" />
+            <state vertical-scroll-proportion="-5.571429" vertical-offset="2071" max-vertical-offset="2635">
+              <caret line="131" column="0" selection-start-line="131" selection-start-column="0" selection-end-line="131" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -151,15 +155,15 @@
         <option value="$PROJECT_DIR$/partials/winner-modal.html" />
         <option value="$PROJECT_DIR$/styles/styles.css" />
         <option value="$PROJECT_DIR$/scripts/app.js" />
-        <option value="$PROJECT_DIR$/partials/users-data-modal.html" />
-        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/scripts/controllers/modal.ctrl.js" />
         <option value="$PROJECT_DIR$/scripts/controllers/tournament-modal.ctrl.js" />
         <option value="$PROJECT_DIR$/partials/tournament-modal.html" />
         <option value="$PROJECT_DIR$/partials/modal.html" />
+        <option value="$PROJECT_DIR$/scripts/controllers/main.ctrl.js" />
+        <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/partials/users-data-modal.html" />
         <option value="$PROJECT_DIR$/scripts/services/game.srv.js" />
         <option value="$PROJECT_DIR$/scripts/controllers/users-data.ctrl.js" />
-        <option value="$PROJECT_DIR$/scripts/controllers/main.ctrl.js" />
       </list>
     </option>
   </component>
@@ -519,7 +523,13 @@
       <option name="project" value="LOCAL" />
       <updated>1460246868743</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="game running &#10;">
+      <created>1460246983861</created>
+      <option name="number" value="00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1460246983861</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -527,7 +537,7 @@
     <editor active="false" />
     <layout>
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32900432" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32900432" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -573,7 +583,8 @@
     <MESSAGE value="cookies&#10;" />
     <MESSAGE value="save winning state in cookie" />
     <MESSAGE value="handle timer&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="handle timer&#10;" />
+    <MESSAGE value="game running &#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="game running &#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -775,17 +786,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="233" max-vertical-offset="1054">
-          <caret line="32" column="67" selection-start-line="32" selection-start-column="67" selection-end-line="32" selection-end-column="67" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/scripts/controllers/modal.ctrl.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="476">
@@ -820,34 +820,45 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/services/game.srv.js">
+    <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.214286" vertical-offset="1697" max-vertical-offset="2618">
-          <caret line="115" column="41" selection-start-line="115" selection-start-column="41" selection-end-line="115" selection-end-column="41" />
-          <folding />
+        <state vertical-scroll-proportion="-4.769231" vertical-offset="29" max-vertical-offset="1071">
+          <caret line="9" column="7" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/partials/users-data-modal.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.076923" vertical-offset="0" max-vertical-offset="476">
-          <caret line="20" column="82" selection-start-line="20" selection-start-column="82" selection-end-line="20" selection-end-column="82" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/controllers/users-data.ctrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="527">
-          <caret line="15" column="6" selection-start-line="15" selection-start-column="6" selection-end-line="15" selection-end-column="6" />
+        <state vertical-scroll-proportion="-2.6153846" vertical-offset="0" max-vertical-offset="476">
+          <caret line="4" column="25" selection-start-line="4" selection-start-column="25" selection-end-line="4" selection-end-column="25" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/scripts/controllers/main.ctrl.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4539007" vertical-offset="1172" max-vertical-offset="2907">
-          <caret line="84" column="59" selection-start-line="84" selection-start-column="59" selection-end-line="84" selection-end-column="59" />
+        <state vertical-scroll-proportion="-4.892857" vertical-offset="968" max-vertical-offset="3281">
+          <caret line="65" column="33" selection-start-line="63" selection-start-column="25" selection-end-line="65" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/services/game.srv.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.571429" vertical-offset="2071" max-vertical-offset="2635">
+          <caret line="131" column="0" selection-start-line="131" selection-start-column="0" selection-end-line="131" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/controllers/users-data.ctrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.20101352" vertical-offset="0" max-vertical-offset="629">
+          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
           <folding />
         </state>
       </provider>

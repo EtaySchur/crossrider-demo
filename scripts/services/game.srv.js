@@ -129,6 +129,7 @@
         }
 
         function initNewTournament( usersInfo ){
+
             gameData.numOfGames = 0;
             gameData.users = usersInfo;
         }

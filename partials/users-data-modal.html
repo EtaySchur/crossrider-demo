@@ -1,22 +1,22 @@
 
 <div class="modal-header">
-    <h3 class="modal-title"> Tournament Complete </h3>
+    <h3 class="modal-title"> Wellcome </h3>
 </div>
 <div  class="modal-body">
     <form>
         <div class="row">
             <div class="form-group col-md-6">
                 <label for="o-player-name">O Player Name </label>
-                <input type="text" class="form-control" id="o-player-name" placeholder="Enter O Player name here">
+                <input ng-model="usersDataModalCtrl.users['O'].name" type="text" class="form-control" id="o-player-name" placeholder="Enter O Player name here">
             </div>
             <div class="form-group col-md-6">
                 <label for="x-player-name">X Player Name </label>
-                <input type="text" class="form-control" id="x-player-name" placeholder="Enter X Player name here">
+                <input ng-model="usersDataModalCtrl.users['X'].name" type="text" class="form-control" id="x-player-name" placeholder="Enter X Player name here">
             </div>
         </div>
     </form>
 </div>
 <div class="modal-footer">
-    <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
-    <button class="btn btn-primary" type="button" ng-click="ok()">Start !</button>
+    <button class="btn btn-warning" type="button" ng-click="usersDataModalCtrl.cancel()">Cancel</button>
+    <button class="btn btn-primary" type="button" ng-click="usersDataModalCtrl.ok()">Start !</button>
 </div>

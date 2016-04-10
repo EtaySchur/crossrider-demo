@@ -54,26 +54,29 @@
                // Check if last game state was in winning modal , if true , reload the winning modal
                if(GameService.checkForWin(vm.gameSetting.currentPlayer)){
                    openEndMatchModal(vm.gameSetting.currentPlayer);
+               }else{
+                   startTimer();
                }
             }else{
-                var users = {
-                    'X': {
-                        score: 0,
-                        name: "Avi",
-                        wins: 0
-
-                    },
-                    'O': {
-                        score: 0,
-                        name: "shlomi",
-                        wins: 0
-                    }
-                };
-                GameService.initNewTournament(users);
-                vm.gameSetting = GameService.initNewMatch();
+                openUsersModal();
+                //var users = {
+                //    'X': {
+                //        score: 0,
+                //        name: "Avi",
+                //        wins: 0
+                //
+                //    },
+                //    'O': {
+                //        score: 0,
+                //        name: "shlomi",
+                //        wins: 0
+                //    }
+                //};
+                //GameService.initNewTournament(users);
+                //vm.gameSetting = GameService.initNewMatch();
             }
             //_play();
-            startTimer();
+
 
         }
 
@@ -96,6 +99,25 @@
         }
 
 
+
+        function openUsersModal(){
+            var modalInstance = $uibModal.open({
+                animation: true ,
+                backdrop : 'static'  ,
+                templateUrl: 'partials/users-data-modal.html',
+                controller: 'UsersDataModalCtrl',
+                controllerAs : 'usersDataModalCtrl'
+
+            });
+
+
+            modalInstance.result.then(function (users) {
+                GameService.initNewTournament(users);
+                vm.gameSetting = GameService.initNewMatch();
+            }, function () {
+
+            });
+        }
 
         function openEndTournamentModal(){
             GameService.endTournament();
