@@ -11,6 +11,7 @@ app.get('/', function(req, res){
     app.use("/styles", express.static(__dirname + '/styles'));
     app.use("/scripts", express.static(__dirname + '/scripts'));
     app.use("/partials", express.static(__dirname + '/partials'));
+
     res.sendFile(__dirname + '/index.html');
 });
 
