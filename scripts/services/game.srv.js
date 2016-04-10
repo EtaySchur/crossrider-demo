@@ -129,9 +129,20 @@
         }
 
         function initNewTournament( usersInfo ){
-
+            var users = {
+                'X' : {
+                    score : 0 ,
+                    wins : 0 ,
+                    name : usersInfo['X'].name
+                } ,
+                'O' : {
+                    score : 0 ,
+                    wins : 0 ,
+                    name : usersInfo['O'].name
+                }
+            };
             gameData.numOfGames = 0;
-            gameData.users = usersInfo;
+            gameData.users = users;
         }
 
         function endTournament(){

@@ -11,14 +11,8 @@ function UsersDataModalCtrl($uibModalInstance ) {
 
     var vm = this;
     vm.users = {
-        'X' : {
-            score : 0 ,
-            wins : 0
-        } ,
-        'O' : {
-            score : 0 ,
-            wins : 0
-        }
+        'X' : {} ,
+        'O' : {}
     };
 
     vm.ok = function () {

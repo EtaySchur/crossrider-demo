@@ -58,7 +58,7 @@
                    startTimer();
                }
             }else{
-                openUsersModal();
+                openNewUsersModal();
                 //var users = {
                 //    'X': {
                 //        score: 0,
@@ -100,7 +100,7 @@
 
 
 
-        function openUsersModal(){
+        function openNewUsersModal(){
             var modalInstance = $uibModal.open({
                 animation: true ,
                 backdrop : 'static'  ,
