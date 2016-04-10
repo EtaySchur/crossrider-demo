@@ -11,7 +11,7 @@ function EndMatchModalCtrl( $uibModalInstance , gameSetting , winner) {
 
     var vm = this;
     vm.winner = winner;
-    vm.modalTitle = winner !== null ? gameSetting.users[winner].name + ' won this game ! Congras ! ' : 'A drew ! Nice match ! ' ;
+    vm.modalTitle = winner !== "DRAW" ? gameSetting.users[winner].name + ' won this game ! Congras ! ' : 'A drew ! Nice match ! ' ;
     vm.gameSetting = gameSetting;
 
     vm.ok = function () {

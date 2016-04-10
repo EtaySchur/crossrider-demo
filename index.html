@@ -25,7 +25,7 @@
         <div style="text-align: center" class="row info-row">
             <div class="col-md-4">
                 <p> {{ctrl.gameSetting.users['O'].name}}</p>
-                <div ng-class="{'pulse' : ctrl.gameSetting.currentPlayer === 'O' }" class="user-circle blue animated">O</div>
+                <div ng-class="{'pulse' : ctrl.gameSetting.currentPlayer === 'O' && ctrl.gameRunning }" class="user-circle blue">O</div>
                 <p>  Wins : {{ctrl.gameSetting.users['O'].wins}}  </p>
             </div>
             <div   class="col-md-4">
@@ -36,7 +36,7 @@
             </div>
             <div class="col-md-4">
                 <p> {{ctrl.gameSetting.users['X'].name}}</p>
-                <div ng-class="{'pulse' : ctrl.gameSetting.currentPlayer === 'X' }" class="user-circle red">X</div>
+                <div ng-class="{'pulse' : ctrl.gameSetting.currentPlayer === 'X' && ctrl.gameRunning  }" class="user-circle red">X</div>
                 <p>  Wins : {{ctrl.gameSetting.users['X'].wins}}  </p>
             </div>
         </div>

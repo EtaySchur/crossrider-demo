@@ -33,13 +33,13 @@
 
             // Check if all moved were made and end game with draw
             if(GameService.getNumberOfMoves() === appConstants.BOARD_SIZE){
-                openEndMatchModal(null);
+                openEndMatchModal("DRAW");
                 return;
             }
 
             // Toggle user & continue to next turn
             vm.gameSetting.currentPlayer = GameService.togglePlayer(vm.gameSetting.currentPlayer);
-            startTimer();
+            startTurn();
         }
 
         ///////////////////Private///////////////////
@@ -55,7 +55,7 @@
                if(GameService.checkForWin(vm.gameSetting.currentPlayer)){
                    openEndMatchModal(vm.gameSetting.currentPlayer);
                }else{
-                   startTimer();
+                   startTurn();
                }
             }else{
                 openNewUsersModal();
@@ -76,16 +76,10 @@
                 //vm.gameSetting = GameService.initNewMatch();
             }
             //_play();
-
-
         }
 
         function startTimer(){
-            vm.gameRunning = true;
             $interval.cancel(timer);
-            //vm.gameSetting.currentPlayer = GameService.togglePlayer(vm.gameSetting.currentPlayer);
-            // vm.gameSetting.currentPlayer = vm.gameSetting.currentPlayer === 'X' ? 'O' : 'X';
-            console.log("This is my current play ",vm.gameSetting.currentPlayer);
             vm.turnLengthInSeconds = appConstants.TURN_LENGTH;
             timer = $interval(function(){
                 vm.turnLengthInSeconds--;
@@ -96,6 +90,11 @@
 
                 }
             }, 1000);
+        }
+
+        function startTurn(){
+            vm.gameRunning = true;
+            startTimer();
         }
 
 
@@ -112,8 +111,11 @@
 
 
             modalInstance.result.then(function (users) {
+                // Creating New Tournament
                 GameService.initNewTournament(users);
                 vm.gameSetting = GameService.initNewMatch();
+                // Lets Start
+                startTurn();
             }, function () {
 
             });
@@ -137,7 +139,6 @@
 
 
             modalInstance.result.then(function () {
-
                 _init();
             }, function () {
             });
@@ -170,11 +171,8 @@
                 }else{
                     // Still have games to play , play new match
                     vm.gameSetting = GameService.initNewMatch();
-
-                    startTimer();
+                    startTurn();
                 }
-            }, function () {
-
             });
         }
 
